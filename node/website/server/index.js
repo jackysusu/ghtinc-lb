@@ -5,7 +5,8 @@ const { PORT } = process.env;
 
 fastify.get('/', (req, reply) => {
   console.log('process pid =>', process.pid);
-  reply.send('Hello World ' + hostname);
+  reply.send('Hello World. Container name: ' + hostname + '\nIP: ' +  process.env.SSH_CONNECTION);
+
 });
 
 fastify.listen(PORT, err => {
