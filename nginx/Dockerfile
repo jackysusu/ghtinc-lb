@@ -4,7 +4,7 @@ RUN mkdir -p /data/apps
 
 COPY default.conf /etc/nginx/conf.d
 
-WORKDIR /data/apps
+WORKDIR /etc/nginx/conf.d
 
 
 #ADD ./data/apps ./
