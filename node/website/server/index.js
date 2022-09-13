@@ -4,7 +4,7 @@ const { PORT } = process.env;
 
 fastify.get('/', (req, reply) => {
   console.log('process pid =>', process.pid);
-  reply.send('Hello World');
+  reply.send('Hello World ' + process.env.SERVER_NAME );
 });
 
 fastify.listen(PORT, err => {
