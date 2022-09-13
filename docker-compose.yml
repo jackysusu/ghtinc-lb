@@ -1,12 +1,12 @@
 version: '3'
 services:
+  #buld nginx container
   nginx:
     container_name: nginx
     build: ./nginx
     depends_on:
       - website1
       - website2
-      - website3
     ports:
       - 80:80
     volumes:
@@ -14,6 +14,8 @@ services:
     networks:
       vpcbr:
            ipv4_address: "10.5.0.5"
+
+#build node container
   website1:
     container_name: website1
     build: ./node
@@ -30,14 +32,8 @@ services:
     networks:
       vpcbr:
            ipv4_address: "10.5.0.12"
-  website3:
-    container_name: website3
-    build: ./node
-    environment:
-      - PORT=8082
-    networks:
-      vpcbr:
-          ipv4_address: "10.5.0.13"
+
+#build docker network
 networks:
   vpcbr:
       driver: bridge
