@@ -1,10 +1,11 @@
 const fastify = require('fastify')();
-
+const os = require("os");
+const hostname = os.hostname()
 const { PORT } = process.env;
 
 fastify.get('/', (req, reply) => {
   console.log('process pid =>', process.pid);
-  reply.send('Hello World ' + process.env.SERVER_NAME );
+  reply.send('Hello World ' + hostname);
 });
 
 fastify.listen(PORT, err => {
