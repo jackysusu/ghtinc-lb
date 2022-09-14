@@ -1,7 +1,7 @@
 const fastify = require('fastify')();
 const os = require("os");
 const hostname = os.hostname()
-const { PORT } = process.pid;
+const { PORT } = process.env;
 
 fastify.get('/', (req, reply) => {
   console.log('process pid =>', process.pid);
